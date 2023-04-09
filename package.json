@@ -1,22 +1,42 @@
 {
   "name": "toastify",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "author": "romchesko-pazzi <romchesko.pazzi@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@storybook/addon-actions": "^7.0.2",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/addon-mdx-gfm": "7.0.2",
+    "@storybook/cli": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "7.0.2",
+    "@storybook/testing-library": "^0.1.0",
     "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
+    "babel-loader": "^8.3.0",
     "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.4",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-n": "^15.0.0",
@@ -27,11 +47,24 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.0",
     "prettier": "^2.8.7",
+    "rollup": "^3.20.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "7.0.2",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "prepare": "husky install",
-    "lint-fix": "eslint --fix"
+    "lint-fix": "eslint --fix",
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "build-lib": "rollup -c"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [
