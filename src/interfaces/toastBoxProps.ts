@@ -1,11 +1,11 @@
 import { MainToastsColors } from '@constants/mainToastsColors';
-import { IToastPosition } from '@interfaces';
-import { Animations } from '@types';
+import { Animations, Positions } from '@types';
 
 export interface IToastBoxProps {
-  background: MainToastsColors;
+  backgroundColor: MainToastsColors;
   textColor: '#FFFFFF' | '#000000';
-  position: IToastPosition;
-  animation: IToastPosition;
+  position: Positions;
+  animation: Positions;
   animationType: Animations;
+  toastDuration: number;
 }

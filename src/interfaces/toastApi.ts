@@ -1,7 +1,6 @@
-import { IToasts } from '@interfaces/toastConfig';
+import { IToast } from '@interfaces/toastConfig';
 
 export interface IToastApi {
-  addToast: (config: IToasts) => void;
-  hideToast: (id: string) => void;
+  addToast: (config: IToast) => void;
   deleteToast: (id: string) => void;
 }

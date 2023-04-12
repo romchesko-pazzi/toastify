@@ -90,6 +90,8 @@
         "no-unused-vars": "off",
         "no-use-before-define": "off",
         "no-plusplus": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off",
         "no-param-reassign": [
             "error",
             {

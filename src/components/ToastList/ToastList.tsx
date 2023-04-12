@@ -1,37 +1,46 @@
 import React from 'react';
 import { Toast } from '@components/Toast';
+import { ToastListBox } from '@components/ToastList/styled';
 import { useToasts } from '@hooks/useToasts';
 
 export const ToastList = () => {
-  const toasts = useToasts();
-
-  console.log(toasts);
+  const containerPositions = useToasts();
 
   return (
     <div>
-      {toasts.length > 0 &&
-        toasts.map(
-          ({
-            toastText,
-            toastType,
-            textColor,
-            backgroundColor,
-            position,
-            animationType,
-            id,
-          }) => (
-            <Toast
-              key={id}
-              id={id}
-              toastText={toastText}
-              toastType={toastType}
-              animationType={animationType}
-              textColor={textColor}
-              backgroundColor={backgroundColor}
-              position={position}
-            />
-          ),
-        )}
+      {containerPositions.length > 0 &&
+        containerPositions.map(([position, toasts]) => {
+          return (
+            <ToastListBox key={position} position={position}>
+              {toasts.map(
+                ({
+                  position,
+                  toastType,
+                  animationType,
+                  id,
+                  backgroundColor,
+                  textColor,
+                  title,
+                  toastDuration,
+                }) => {
+                  return (
+                    <Toast
+                      key={id}
+                      title={title}
+                      toastType={toastType}
+                      backgroundColor={backgroundColor}
+                      position={position}
+                      textColor={textColor}
+                      animationType={animationType}
+                      toastDuration={toastDuration}
+                      id={id}
+                    />
+                  );
+                },
+              )}
+            </ToastListBox>
+          );
+        })}
     </div>
   );
 };

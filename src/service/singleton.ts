@@ -1,9 +1,9 @@
-import { IToastApi, IToasts } from '@interfaces';
+import { IToast, IToastApi } from '@interfaces';
 
 class Singleton {
   private static instance: Singleton;
 
-  toastInteraction: IToastApi | undefined;
+  toastInteraction: IToastApi;
 
   private constructor() {}
 
@@ -15,12 +15,12 @@ class Singleton {
     return Singleton.instance;
   };
 
-  public addToast = (config: IToasts) => {
-    this.toastInteraction?.addToast(config);
+  public addToast = (config: IToast) => {
+    this.toastInteraction.addToast(config);
   };
 
   public deleteToast = (id: string) => {
-    this.toastInteraction?.deleteToast(id);
+    this.toastInteraction.deleteToast(id);
   };
 }
 
