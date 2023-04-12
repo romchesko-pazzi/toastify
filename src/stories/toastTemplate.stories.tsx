@@ -15,16 +15,12 @@ export default {
       control: { type: 'text' },
       defaultValue: 'Warning title dummy text',
     },
+    description: {
+      control: { type: 'text' },
+    },
     position: {
       control: { type: 'select' },
-      options: [
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right',
-        'bottom-center',
-        'top-center',
-      ],
+      options: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
     },
     toastType: {
       control: { type: 'select' },
@@ -52,6 +48,7 @@ const Template = ({
   backgroundColor,
   animationType,
   toastDuration,
+  description,
 }: IToast) => {
   return (
     <ToastPortal>
@@ -61,6 +58,7 @@ const Template = ({
           instance.addToast({
             id: v4(),
             title,
+            description,
             position,
             backgroundColor,
             toastType,

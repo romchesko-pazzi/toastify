@@ -3,11 +3,19 @@ import { SvgSelector } from '@components/SvgSelector';
 import { IToast } from '@interfaces';
 import { instance } from '@service/singleton';
 
-import { CloseButton, ToastBox, ToastContent, ToastTitle } from './styled';
+import {
+  CloseButton,
+  TextBox,
+  ToastBox,
+  ToastContent,
+  ToastDescription,
+  ToastTitle,
+} from './styled';
 
 export const Toast = (props: IToast) => {
   const {
     title,
+    description,
     toastType,
     textColor,
     backgroundColor,
@@ -32,7 +40,10 @@ export const Toast = (props: IToast) => {
     >
       <ToastContent>
         <SvgSelector id={toastType} />
-        <ToastTitle>{title}</ToastTitle>
+        <TextBox>
+          <ToastTitle>{title}</ToastTitle>
+          <ToastDescription>{description}</ToastDescription>
+        </TextBox>
       </ToastContent>
       <CloseButton color={textColor} onClick={closeToast(id)}>
         <SvgSelector id="close" />

@@ -14,19 +14,21 @@ export const ToastList = () => {
             <ToastListBox key={position} position={position}>
               {toasts.map(
                 ({
+                  title,
+                  description,
                   position,
                   toastType,
                   animationType,
                   id,
                   backgroundColor,
                   textColor,
-                  title,
                   toastDuration,
                 }) => {
                   return (
                     <Toast
                       key={id}
                       title={title}
+                      description={description}
                       toastType={toastType}
                       backgroundColor={backgroundColor}
                       position={position}
