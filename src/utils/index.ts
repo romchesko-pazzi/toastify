@@ -1,2 +1,2 @@
-export { getAnimation } from './getAnimation';
+export { fadeAnimation, slideAnimation } from './animations';
 export { getPosition } from './getPosition';

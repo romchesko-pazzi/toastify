@@ -4,11 +4,12 @@ import { TestButton } from '@assets';
 import { ToastContainer } from '@components/ToastContainer';
 import { ToastList } from '@components/ToastList';
 import { ToastPortal } from '@components/ToastPortal';
+import { SlideDirections } from '@constants';
 import { IToast } from '@interfaces';
 import { instance } from '@service/singleton';
 
 export default {
-  title: 'Template',
+  title: 'Test/Toast',
   component: ToastContainer,
   argTypes: {
     title: {
@@ -34,6 +35,16 @@ export default {
       control: 'radio',
       options: ['fade', 'slide'],
     },
+    slideDirection: {
+      defaultValue: 'left',
+      options: [
+        SlideDirections.top,
+        SlideDirections.left,
+        SlideDirections.right,
+        SlideDirections.bottom,
+      ],
+      control: { type: 'select' },
+    },
     toastDuration: {
       control: { type: 'number' },
       defaultValue: 3000,
@@ -49,6 +60,7 @@ const Template = ({
   animationType,
   toastDuration,
   description,
+  slideDirection,
 }: IToast) => {
   return (
     <ToastPortal>
@@ -65,6 +77,7 @@ const Template = ({
             animationType,
             textColor: '#FFFFFF',
             toastDuration,
+            slideDirection,
           });
         }}
       >

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Positions } from '@types';
+import { Positions } from '@constants';
 import { getPosition } from '@utils';
 
 export const ToastListBox = styled.div<{ position: Positions }>`

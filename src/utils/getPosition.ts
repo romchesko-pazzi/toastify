@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation } from 'styled-components';
-import { Positions } from '@types';
+import { Positions } from '@constants';
 
 export const getPosition = (position: Positions): FlattenSimpleInterpolation => {
   switch (position) {

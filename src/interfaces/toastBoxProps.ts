@@ -1,5 +1,5 @@
-import { MainToastsColors } from '@constants/mainToastsColors';
-import { Animations, Positions } from '@types';
+import { MainToastsColors, Positions, SlideDirections } from '@constants';
+import { Animations } from '@types';
 
 export interface IToastBoxProps {
   backgroundColor: MainToastsColors;
@@ -7,5 +7,6 @@ export interface IToastBoxProps {
   position: Positions;
   animation: Positions;
   animationType: Animations;
+  slideDirection: SlideDirections;
   toastDuration: number;
 }

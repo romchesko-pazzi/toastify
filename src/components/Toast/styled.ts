@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { IToastBoxProps } from '@interfaces/toastBoxProps';
-import { opacityAnimation } from '@utils/animations';
+import { fadeAnimation, slideAnimation } from '@utils';
 
 const fontSettings = `
   overflow: hidden;
@@ -27,8 +27,10 @@ export const ToastBox = styled.div<IToastBoxProps>`
     width: 3rem;
     fill: ${({ textColor }) => textColor};
   }
-  ${({ toastDuration }) => {
-    return opacityAnimation(toastDuration);
+  ${({ toastDuration, animationType, slideDirection }) => {
+    return animationType === 'fade'
+      ? fadeAnimation(toastDuration)
+      : slideAnimation(toastDuration, slideDirection);
   }}
 `;
 

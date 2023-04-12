@@ -23,6 +23,7 @@ export const Toast = (props: IToast) => {
     animationType,
     id,
     toastDuration,
+    slideDirection,
   } = props;
 
   const closeToast = (id: string) => () => {
@@ -37,6 +38,7 @@ export const Toast = (props: IToast) => {
       animation={position}
       backgroundColor={backgroundColor}
       toastDuration={toastDuration}
+      slideDirection={slideDirection}
     >
       <ToastContent>
         <SvgSelector id={toastType} />

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Toast } from '@components/Toast';
-import { ToastListBox } from '@components/ToastList/styled';
-import { useToasts } from '@hooks/useToasts';
+import { useToasts } from '@hooks';
+
+import { ToastListBox } from './styled';
 
 export const ToastList = () => {
   const containerPositions = useToasts();
@@ -23,6 +24,7 @@ export const ToastList = () => {
                   backgroundColor,
                   textColor,
                   toastDuration,
+                  slideDirection,
                 }) => {
                   return (
                     <Toast
@@ -35,6 +37,7 @@ export const ToastList = () => {
                       textColor={textColor}
                       animationType={animationType}
                       toastDuration={toastDuration}
+                      slideDirection={slideDirection}
                       id={id}
                     />
                   );

@@ -1,8 +1,8 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { maxToastsCount } from '@constants';
+import { maxToastsCount, Positions } from '@constants';
 import { IToast, IToastApi } from '@interfaces';
 import { instance } from '@service/singleton';
-import { Positions, ToastBoxPosition, ToastListContainer } from '@types';
+import { ToastBoxPosition, ToastListContainer } from '@types';
 
 export const useToasts = () => {
   const [toasts, setToasts] = useState<IToast[]>([]);

@@ -1,6 +1,5 @@
-import { MainToastsColors } from '@constants/mainToastsColors';
-import { ToastsTypes } from '@constants/toastsTypes';
-import { Animations, Positions } from '@types';
+import { MainToastsColors, Positions, SlideDirections, ToastsTypes } from '@constants';
+import { Animations } from '@types';
 
 export interface IToast {
   title: string;
@@ -11,5 +10,6 @@ export interface IToast {
   position: Positions;
   animationType: Animations;
   toastDuration: number;
+  slideDirection: SlideDirections;
   id: string;
 }
