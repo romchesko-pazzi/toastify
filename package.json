@@ -1,14 +1,17 @@
 {
-  "name": "toastify",
+  "name": "toastify-lib",
   "version": "1.0.0",
+  "description": "notification library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "author": "romchesko-pazzi <romchesko.pazzi@gmail.com>",
   "license": "MIT",
   "type": "module",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.3",
     "styled-components": "^5.3.9",
     "uuid": "^9.0.0"
   },

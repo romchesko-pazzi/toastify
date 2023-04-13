@@ -5,7 +5,7 @@ export interface IToast {
   title: string;
   description: string;
   backgroundColor: MainToastsColors;
-  textColor: '#FFFFFF' | '#000000';
+  textColor: string;
   toastType: ToastsTypes;
   position: Positions;
   animationType: Animations;

@@ -3,7 +3,7 @@ import { Animations } from '@types';
 
 export interface IToastBoxProps {
   backgroundColor: MainToastsColors;
-  textColor: '#FFFFFF' | '#000000';
+  textColor: string;
   position: Positions;
   animation: Positions;
   animationType: Animations;
