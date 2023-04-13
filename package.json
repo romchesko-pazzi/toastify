@@ -71,7 +71,8 @@
     "lint-fix": "eslint --fix",
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
-    "build-lib": "rollup -c"
+    "build-lib": "rollup -c",
+    "publish": "npm version patch && npm publish"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [
