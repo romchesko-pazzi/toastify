@@ -1,7 +1,9 @@
 import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import babel from 'rollup-plugin-babel';
 import external from 'rollup-plugin-peer-deps-external';
+import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
@@ -25,6 +27,10 @@ export default [
       }),
       external(),
       resolve(),
+      terser(),
+      typescript({
+        tsconfig: './tsconfig.json',
+      }),
       alias({
         entries: [{ find: '@*', replacement: './src/*' }],
       }),
