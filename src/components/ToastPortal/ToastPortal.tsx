@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { v1 } from 'uuid';
-import { GlobalStyle } from '@assets';
 
 export const ToastPortal = ({ children }: { children: ReactNode }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,15 +18,5 @@ export const ToastPortal = ({ children }: { children: ReactNode }) => {
     };
   }, [portalId]);
 
-  return isLoaded ? (
-    createPortal(
-      <>
-        <GlobalStyle />
-        {children}
-      </>,
-      document.getElementById(portalId)!,
-    )
-  ) : (
-    <div />
-  );
+  return isLoaded ? createPortal(children, document.getElementById(portalId)!) : <div />;
 };

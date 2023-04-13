@@ -1,4 +1,5 @@
 import React from 'react';
+import { GlobalStyle } from '@assets';
 import { SvgSelector } from '@components/SvgSelector';
 import { IToast } from '@interfaces';
 import { instance } from '@service/singleton';
@@ -31,25 +32,28 @@ export const Toast = (props: IToast) => {
   };
 
   return (
-    <ToastBox
-      animationType={animationType}
-      textColor={textColor}
-      position={position}
-      animation={position}
-      backgroundColor={backgroundColor}
-      toastDuration={toastDuration}
-      slideDirection={slideDirection}
-    >
-      <ToastContent>
-        <SvgSelector id={toastType} />
-        <TextBox>
-          <ToastTitle>{title}</ToastTitle>
-          <ToastDescription>{description}</ToastDescription>
-        </TextBox>
-      </ToastContent>
-      <CloseButton color={textColor} onClick={closeToast(id)}>
-        <SvgSelector id="close" />
-      </CloseButton>
-    </ToastBox>
+    <>
+      <GlobalStyle />
+      <ToastBox
+        animationType={animationType}
+        textColor={textColor}
+        position={position}
+        animation={position}
+        backgroundColor={backgroundColor}
+        toastDuration={toastDuration}
+        slideDirection={slideDirection}
+      >
+        <ToastContent>
+          <SvgSelector id={toastType} />
+          <TextBox>
+            <ToastTitle>{title}</ToastTitle>
+            <ToastDescription>{description}</ToastDescription>
+          </TextBox>
+        </ToastContent>
+        <CloseButton color={textColor} onClick={closeToast(id)}>
+          <SvgSelector id="close" />
+        </CloseButton>
+      </ToastBox>
+    </>
   );
 };
