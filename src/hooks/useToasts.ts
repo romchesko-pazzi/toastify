@@ -38,7 +38,7 @@ export const useToasts = () => {
         if (toasts.length < maxToastsCount) {
           setToasts([...toasts, newToast]);
           setTimeout(() => {
-            ref.current?.deleteToast(newToast.id);
+            ref.current.deleteToast(newToast.id);
           }, newToast.toastDuration);
         }
       },

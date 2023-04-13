@@ -55,7 +55,7 @@ export const ToastDescription = styled.span`
   font-size: 1.6rem;
 `;
 
-export const CloseButton = styled.button<{ color: '#FFFFFF' | '#000000' }>`
+export const CloseButton = styled.button<{ color: string }>`
   position: absolute;
   top: 2rem;
   right: 2rem;

@@ -7,7 +7,7 @@ import { Animations } from '@types';
 
 const commonArgs = {
   position: Positions.TopLeft,
-  animationType: 'fade' as Animations,
+  animationType: 'slide' as Animations,
   toastDuration: 5000,
 };
 
