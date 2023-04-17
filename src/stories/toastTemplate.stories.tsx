@@ -31,6 +31,9 @@ export default {
     backgroundColor: {
       control: 'color',
     },
+    textColor: {
+      control: 'color',
+    },
     animationType: {
       control: 'radio',
       options: ['fade', 'slide'],
@@ -47,7 +50,6 @@ export default {
     },
     toastDuration: {
       control: { type: 'number' },
-      defaultValue: 3000,
     },
   },
 };
@@ -61,11 +63,13 @@ const Template = ({
   toastDuration,
   description,
   slideDirection,
+  textColor,
 }: IToast) => {
   return (
     <ToastPortal>
       <TestButton
         type="button"
+        data-cy="btn-create-toast"
         onClick={() => {
           instance.addToast({
             id: v4(),
@@ -75,7 +79,7 @@ const Template = ({
             backgroundColor,
             toastType,
             animationType,
-            textColor: '#FFFFFF',
+            textColor,
             toastDuration,
             slideDirection,
           });

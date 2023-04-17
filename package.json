@@ -1,6 +1,6 @@
 {
   "name": "toastify-lib",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "notification library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -39,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "babel-loader": "^8.3.0",
+    "cypress": "^12.9.0",
     "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -49,6 +50,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
@@ -70,10 +72,12 @@
   "scripts": {
     "prepare": "husky install",
     "lint-fix": "eslint --fix",
-    "storybook": "storybook dev",
+    "storybook": "storybook dev --port 9000",
     "build-storybook": "storybook build",
     "build-lib": "rollup -c",
-    "publish": "npm version patch && npm publish"
+    "publish": "npm version patch && npm publish",
+    "cypress": "cypress open",
+    "cypressAll": "cypress run --browser=firefox"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [

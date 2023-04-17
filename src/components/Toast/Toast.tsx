@@ -35,6 +35,7 @@ export const Toast = (props: IToast) => {
     <>
       <GlobalStyle />
       <ToastBox
+        data-cy="toast"
         animationType={animationType}
         textColor={textColor}
         position={position}
@@ -44,13 +45,13 @@ export const Toast = (props: IToast) => {
         slideDirection={slideDirection}
       >
         <ToastContent>
-          <SvgSelector id={toastType} />
+          <SvgSelector data-cy="svg" id={toastType} />
           <TextBox>
-            <ToastTitle>{title}</ToastTitle>
-            <ToastDescription>{description}</ToastDescription>
+            <ToastTitle data-cy="title">{title}</ToastTitle>
+            <ToastDescription data-cy="description">{description}</ToastDescription>
           </TextBox>
         </ToastContent>
-        <CloseButton color={textColor} onClick={closeToast(id)}>
+        <CloseButton data-cy="close-toast" color={textColor} onClick={closeToast(id)}>
           <SvgSelector id="close" />
         </CloseButton>
       </ToastBox>

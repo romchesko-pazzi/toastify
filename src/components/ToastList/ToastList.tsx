@@ -12,7 +12,7 @@ export const ToastList = () => {
       {containerPositions.length > 0 &&
         containerPositions.map(([position, toasts]) => {
           return (
-            <ToastListBox key={position} position={position}>
+            <ToastListBox data-cy="toasts-container" key={position} position={position}>
               {toasts.map(
                 ({
                   title,
