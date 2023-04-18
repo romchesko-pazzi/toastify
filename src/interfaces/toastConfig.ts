@@ -1,10 +1,10 @@
-import { MainToastsColors, Positions, SlideDirections, ToastsTypes } from '@constants';
+import { Positions, SlideDirections, ToastsTypes } from '@constants';
 import { Animations } from '@types';
 
 export interface IToast {
   title: string;
   description: string;
-  backgroundColor: MainToastsColors;
+  backgroundColor: string;
   textColor: string;
   toastType: ToastsTypes;
   position: Positions;

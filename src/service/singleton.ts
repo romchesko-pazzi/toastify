@@ -1,18 +1,18 @@
 import { IToast, IToastApi } from '@interfaces';
 
-class Singleton {
-  private static instance: Singleton;
+class ToastManager {
+  private static instance: ToastManager;
 
   toastInteraction: IToastApi;
 
   private constructor() {}
 
-  public static getInstance = (): Singleton => {
-    if (!Singleton.instance) {
-      Singleton.instance = new Singleton();
+  public static getInstance = (): ToastManager => {
+    if (!ToastManager.instance) {
+      ToastManager.instance = new ToastManager();
     }
 
-    return Singleton.instance;
+    return ToastManager.instance;
   };
 
   public addToast = (config: IToast) => {
@@ -24,4 +24,4 @@ class Singleton {
   };
 }
 
-export const instance = Singleton.getInstance();
+export const toast = ToastManager.getInstance();

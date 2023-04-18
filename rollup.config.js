@@ -2,8 +2,8 @@ import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import babel from 'rollup-plugin-babel';
+import dts from 'rollup-plugin-dts';
 import external from 'rollup-plugin-peer-deps-external';
-import { terser } from 'rollup-plugin-terser';
 
 export default [
   {
@@ -27,7 +27,6 @@ export default [
       }),
       external(),
       resolve(),
-      terser(),
       typescript({
         tsconfig: './tsconfig.json',
       }),
@@ -44,20 +43,15 @@ export default [
         file: 'dist/index.d.ts',
         format: 'cjs',
       },
-      {
-        file: 'dist/index.es.js',
-        format: 'es',
-        exports: 'named',
-      },
     ],
     plugins: [
       babel({
         exclude: 'node_modules/**',
         presets: ['@babel/preset-react'],
       }),
+      dts(),
       external(),
       resolve(),
-      terser(),
       typescript({
         tsconfig: './tsconfig.json',
       }),

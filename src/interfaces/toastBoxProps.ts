@@ -1,8 +1,8 @@
-import { MainToastsColors, Positions, SlideDirections } from '@constants';
+import { Positions, SlideDirections } from '@constants';
 import { Animations } from '@types';
 
 export interface IToastBoxProps {
-  backgroundColor: MainToastsColors;
+  backgroundColor: string;
   textColor: string;
   position: Positions;
   animation: Positions;

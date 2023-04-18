@@ -6,7 +6,7 @@ import { ToastList } from '@components/ToastList';
 import { ToastPortal } from '@components/ToastPortal';
 import { SlideDirections } from '@constants';
 import { IToast } from '@interfaces';
-import { instance } from '@service/singleton';
+import { toast } from '@service/singleton';
 
 export default {
   title: 'Test/Toast',
@@ -71,7 +71,7 @@ const Template = ({
         type="button"
         data-cy="btn-create-toast"
         onClick={() => {
-          instance.addToast({
+          toast.addToast({
             id: v4(),
             title,
             description,

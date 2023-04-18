@@ -1,16 +1,16 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { maxToastsCount, Positions } from '@constants';
 import { IToast, IToastApi } from '@interfaces';
-import { instance } from '@service/singleton';
+import { toast } from '@service/singleton';
 import { ToastBoxPosition, ToastListContainer } from '@types';
 
 export const useToasts = () => {
   const [toasts, setToasts] = useState<IToast[]>([]);
   const [containerPositions, setContainerPositions] = useState<ToastListContainer>([]);
-  const ref = useRef<IToastApi>(instance.toastInteraction);
+  const ref = useRef<IToastApi>(toast.toastInteraction);
 
   useEffect(() => {
-    instance.toastInteraction = ref.current;
+    toast.toastInteraction = ref.current;
     setContainerPositions(positionOfTheContainer(toasts));
   }, [toasts]);
 

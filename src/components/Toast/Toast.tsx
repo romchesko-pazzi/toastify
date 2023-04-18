@@ -2,7 +2,7 @@ import React from 'react';
 import { GlobalStyle } from '@assets';
 import { SvgSelector } from '@components/SvgSelector';
 import { IToast } from '@interfaces';
-import { instance } from '@service/singleton';
+import { toast } from '@service/singleton';
 
 import {
   CloseButton,
@@ -28,7 +28,7 @@ export const Toast = (props: IToast) => {
   } = props;
 
   const closeToast = (id: string) => () => {
-    instance.deleteToast(id);
+    toast.deleteToast(id);
   };
 
   return (
