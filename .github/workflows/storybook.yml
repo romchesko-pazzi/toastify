@@ -1,0 +1,10 @@
+name: Build and Deploy
+on:
+  push:
+    branches: ['master', 'develop']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build storybook
+        run: yarn run build-storybook
