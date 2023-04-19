@@ -1,5 +1,5 @@
 import { Positions } from '@constants';
-import { IToast } from '@interfaces';
+import { IToastConfig } from '@interfaces';
 
-export type ToastListContainer = [[position: Positions, toasts: IToast[]]] | [];
-export type ToastBoxPosition = Record<Positions, IToast[]>;
+export type ToastListContainer = [[position: Positions, toasts: IToastConfig[]]] | [];
+export type ToastBoxPosition = Record<Positions, IToastConfig[]>;

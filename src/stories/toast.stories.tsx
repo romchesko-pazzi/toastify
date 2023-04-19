@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import { Meta, StoryObj } from '@storybook/react';
 import { colors } from '@assets';
 import { Toast } from '@components/Toast';
@@ -22,7 +21,6 @@ export const Warning: Story = {
   args: {
     title: 'Warning',
     description: 'Warning description',
-    id: v4(),
     textColor: colors.black,
     toastType: ToastsTypes.warning,
     backgroundColor: MainToastsColors.yellow,
@@ -34,7 +32,6 @@ export const Success: Story = {
   args: {
     title: 'Success',
     description: 'Success description',
-    id: v4(),
     textColor: colors.white,
     toastType: ToastsTypes.success,
     backgroundColor: MainToastsColors.green,
@@ -46,7 +43,6 @@ export const Error: Story = {
   args: {
     title: 'Error',
     description: 'Error description',
-    id: v4(),
     textColor: colors.white,
     toastType: ToastsTypes.error,
     backgroundColor: MainToastsColors.red,
@@ -58,7 +54,6 @@ export const Info: Story = {
   args: {
     title: 'Info',
     description: 'Info description',
-    id: v4(),
     textColor: colors.white,
     toastType: ToastsTypes.info,
     backgroundColor: MainToastsColors.purple,

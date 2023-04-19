@@ -1,4 +1,4 @@
-import { IToast, IToastApi } from '@interfaces';
+import { IToastApi, IToastConfig } from '@interfaces';
 
 class ToastManager {
   private static instance: ToastManager;
@@ -15,7 +15,7 @@ class ToastManager {
     return ToastManager.instance;
   };
 
-  public addToast = (config: IToast) => {
+  public addToast = (config: IToastConfig) => {
     this.toastInteraction.addToast(config);
   };
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import { v4 } from 'uuid';
 import { TestButton } from '@assets';
 import { ToastContainer } from '@components/ToastContainer';
 import { ToastList } from '@components/ToastList';
 import { ToastPortal } from '@components/ToastPortal';
 import { SlideDirections } from '@constants';
-import { IToast } from '@interfaces';
+import { IToastConfig } from '@interfaces';
 import { toast } from '@service/singleton';
 
 export default {
@@ -64,7 +63,7 @@ const Template = ({
   description,
   slideDirection,
   textColor,
-}: IToast) => {
+}: IToastConfig) => {
   return (
     <ToastPortal>
       <TestButton
@@ -72,7 +71,6 @@ const Template = ({
         data-cy="btn-create-toast"
         onClick={() => {
           toast.addToast({
-            id: v4(),
             title,
             description,
             position,

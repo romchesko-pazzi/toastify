@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from '@assets';
 import { SvgSelector } from '@components/SvgSelector';
-import { IToast } from '@interfaces';
+import { IToastConfig } from '@interfaces';
 import { toast } from '@service/singleton';
 
 import {
@@ -13,7 +13,7 @@ import {
   ToastTitle,
 } from './styled';
 
-export const Toast = (props: IToast) => {
+export const Toast = (props: IToastConfig) => {
   const {
     title,
     description,
@@ -51,7 +51,7 @@ export const Toast = (props: IToast) => {
             <ToastDescription data-cy="description">{description}</ToastDescription>
           </TextBox>
         </ToastContent>
-        <CloseButton data-cy="close-toast" color={textColor} onClick={closeToast(id)}>
+        <CloseButton data-cy="close-toast" color={textColor} onClick={closeToast(id!)}>
           <SvgSelector id="close" />
         </CloseButton>
       </ToastBox>

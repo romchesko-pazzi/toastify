@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IToastBoxProps } from '@interfaces/toastBoxProps';
+import { IToastBoxProps } from '@interfaces';
 import { fadeAnimation, slideAnimation } from '@utils';
 
 const fontSettings = `

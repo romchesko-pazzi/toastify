@@ -1,11 +1,12 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { v4 } from 'uuid';
 import { maxToastsCount, Positions } from '@constants';
-import { IToast, IToastApi } from '@interfaces';
+import { IToastApi, IToastConfig } from '@interfaces';
 import { toast } from '@service/singleton';
 import { ToastBoxPosition, ToastListContainer } from '@types';
 
 export const useToasts = () => {
-  const [toasts, setToasts] = useState<IToast[]>([]);
+  const [toasts, setToasts] = useState<IToastConfig[]>([]);
   const [containerPositions, setContainerPositions] = useState<ToastListContainer>([]);
   const ref = useRef<IToastApi>(toast.toastInteraction);
 
@@ -14,7 +15,7 @@ export const useToasts = () => {
     setContainerPositions(positionOfTheContainer(toasts));
   }, [toasts]);
 
-  const positionOfTheContainer = (toasts: IToast[]): ToastListContainer => {
+  const positionOfTheContainer = (toasts: IToastConfig[]): ToastListContainer => {
     const positions: ToastBoxPosition = {
       [Positions.TopRight]: [],
       [Positions.TopLeft]: [],
@@ -34,11 +35,13 @@ export const useToasts = () => {
   useImperativeHandle(
     ref,
     () => ({
-      addToast: (newToast: IToast) => {
+      addToast: (newToast: IToastConfig) => {
         if (toasts.length < maxToastsCount) {
-          setToasts([...toasts, newToast]);
+          const id = v4();
+
+          setToasts([...toasts, { ...newToast, id }]);
           setTimeout(() => {
-            ref.current.deleteToast(newToast.id);
+            ref.current.deleteToast(id);
           }, newToast.toastDuration);
         }
       },
