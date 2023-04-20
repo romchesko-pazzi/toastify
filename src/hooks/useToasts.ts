@@ -1,6 +1,6 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { v4 } from 'uuid';
-import { maxToastsCount, Positions } from '@constants';
+import { maxToastsCount } from '@constants';
 import { IToastApi, IToastConfig } from '@interfaces';
 import { toast } from '@service/singleton';
 import { ToastBoxPosition, ToastListContainer } from '@types';
@@ -12,16 +12,11 @@ export const useToasts = () => {
 
   useEffect(() => {
     toast.toastInteraction = ref.current;
-    setContainerPositions(positionOfTheContainer(toasts));
+    setContainerPositions(containerPosition(toasts));
   }, [toasts]);
 
-  const positionOfTheContainer = (toasts: IToastConfig[]): ToastListContainer => {
-    const positions: ToastBoxPosition = {
-      [Positions.TopRight]: [],
-      [Positions.TopLeft]: [],
-      [Positions.BottomRight]: [],
-      [Positions.BottomLeft]: [],
-    };
+  const containerPosition = (toasts: IToastConfig[]): ToastListContainer => {
+    const positions: ToastBoxPosition = {};
 
     toasts.forEach(toast => {
       positions[toast.position] = positions[toast.position]
