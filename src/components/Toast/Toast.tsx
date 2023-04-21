@@ -2,7 +2,7 @@ import React from 'react';
 import { GlobalStyle } from '@assets';
 import { SvgSelector } from '@components/SvgSelector';
 import { IToastConfig } from '@interfaces';
-import { toast } from '@service/singleton';
+import { toast } from '@service/toastManager';
 
 import {
   CloseButton,

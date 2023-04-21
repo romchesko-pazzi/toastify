@@ -3,17 +3,26 @@ import { TestButton } from '@assets';
 import { ToastContainer } from '@components/ToastContainer';
 import { ToastList } from '@components/ToastList';
 import { ToastPortal } from '@components/ToastPortal';
-import { SlideDirections } from '@constants';
+import { MainToastsColors, Positions, SlideDirections, ToastsTypes } from '@constants';
 import { IToastConfig } from '@interfaces';
-import { toast } from '@service/singleton';
+import { toast } from '@service/toastManager';
 
 export default {
   title: 'Test/Toast',
   component: ToastContainer,
+  args: {
+    title: 'Info title dummy text',
+    description: 'description text',
+    position: Positions.TopLeft,
+    toastType: ToastsTypes.info,
+    backgroundColor: MainToastsColors.purple,
+    textColor: '#ffffff',
+    animationType: 'fade',
+    toastDuration: 4000,
+  },
   argTypes: {
     title: {
       control: { type: 'text' },
-      defaultValue: 'Warning title dummy text',
     },
     description: {
       control: { type: 'text' },
@@ -24,7 +33,6 @@ export default {
     },
     toastType: {
       control: { type: 'select' },
-      defaultValue: 'info',
       options: ['info', 'warning', 'error', 'success'],
     },
     backgroundColor: {
@@ -38,7 +46,6 @@ export default {
       options: ['fade', 'slide'],
     },
     slideDirection: {
-      defaultValue: 'left',
       options: [
         SlideDirections.top,
         SlideDirections.left,

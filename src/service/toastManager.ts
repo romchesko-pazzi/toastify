@@ -3,9 +3,13 @@ import { IToastApi, IToastConfig } from '@interfaces';
 class ToastManager {
   private static instance: ToastManager;
 
+  private readonly toasts: IToastConfig[] = [];
+
   toastInteraction: IToastApi;
 
-  private constructor() {}
+  private constructor() {
+    this.toasts = [];
+  }
 
   public static getInstance = (): ToastManager => {
     if (!ToastManager.instance) {
@@ -22,6 +26,8 @@ class ToastManager {
   public deleteToast = (id: string) => {
     this.toastInteraction.deleteToast(id);
   };
+
+  public getToasts = () => this.toasts;
 }
 
 export const toast = ToastManager.getInstance();
