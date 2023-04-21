@@ -13,6 +13,7 @@ export const useToasts = () => {
   useEffect(() => {
     toast.toastInteraction = ref.current;
     setContainerPositions(containerPosition(toasts));
+    toast.setToasts(toasts);
   }, [toasts]);
 
   const containerPosition = (toasts: IToastConfig[]): ToastListContainer => {

@@ -3,7 +3,7 @@ import { IToastApi, IToastConfig } from '@interfaces';
 class ToastManager {
   private static instance: ToastManager;
 
-  private readonly toasts: IToastConfig[] = [];
+  private toasts: IToastConfig[] = [];
 
   toastInteraction: IToastApi;
 
@@ -25,6 +25,10 @@ class ToastManager {
 
   public deleteToast = (id: string) => {
     this.toastInteraction.deleteToast(id);
+  };
+
+  public setToasts = (toasts: IToastConfig[]) => {
+    this.toasts = toasts;
   };
 
   public getToasts = () => this.toasts;
