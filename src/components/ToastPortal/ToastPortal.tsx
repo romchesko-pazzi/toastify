@@ -1,6 +1,11 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ThemeProvider } from 'styled-components';
 import { v1 } from 'uuid';
+import { GlobalStyle } from '@assets';
+import { theme } from '@assets/theme';
+import { ErrorFallback } from '@components/ErrorBoundary';
 
 export const ToastPortal = ({ children }: { children: ReactNode }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,5 +23,17 @@ export const ToastPortal = ({ children }: { children: ReactNode }) => {
     };
   }, [portalId]);
 
-  return isLoaded ? createPortal(children, document.getElementById(portalId)!) : <div />;
+  return isLoaded ? (
+    createPortal(
+      <ThemeProvider theme={theme}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <GlobalStyle />
+          {children}
+        </ErrorBoundary>
+      </ThemeProvider>,
+      document.getElementById(portalId)!,
+    )
+  ) : (
+    <div />
+  );
 };

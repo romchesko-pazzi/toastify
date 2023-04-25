@@ -1,17 +1,12 @@
 import styled from 'styled-components';
+import { center } from '@constants';
 
 export const ErrorWrapper = styled.div`
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  font-family: 'Roboto Mono', monospace;
-  text-align: center;
+  ${center}
 `;
 
 export const ErrorText = styled.h3`
-  color: #000;
-  font-size: 3.4rem;
-  letter-spacing: 0.2px;
-  margin-bottom: 3rem;
+  font-size: ${({ theme }) => theme.fontSize.big}rem;
+  letter-spacing: ${({ theme }) => theme.letterSpacing}px;
+  margin-bottom: ${({ theme }) => theme.margin.marginBottom.medium}rem;
 `;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { GlobalStyle } from '@assets';
 import { SvgSelector } from '@components/SvgSelector';
 import { IToastConfig } from '@interfaces';
 import { toast } from '@service/toastManager';
@@ -32,29 +31,26 @@ export const Toast = (props: IToastConfig) => {
   };
 
   return (
-    <>
-      <GlobalStyle />
-      <ToastBox
-        data-cy="toast"
-        animationType={animationType}
-        textColor={textColor}
-        position={position}
-        animation={position}
-        backgroundColor={backgroundColor}
-        toastDuration={toastDuration}
-        slideDirection={slideDirection}
-      >
-        <ToastContent>
-          <SvgSelector data-cy="svg" id={toastType} />
-          <TextBox>
-            <ToastTitle data-cy="title">{title}</ToastTitle>
-            <ToastDescription data-cy="description">{description}</ToastDescription>
-          </TextBox>
-        </ToastContent>
-        <CloseButton data-cy="close-toast" color={textColor} onClick={closeToast(id!)}>
-          <SvgSelector id="close" />
-        </CloseButton>
-      </ToastBox>
-    </>
+    <ToastBox
+      data-cy="toast"
+      animationType={animationType}
+      textColor={textColor}
+      position={position}
+      animation={position}
+      backgroundColor={backgroundColor}
+      toastDuration={toastDuration}
+      slideDirection={slideDirection}
+    >
+      <ToastContent>
+        <SvgSelector data-cy="svg" id={toastType} />
+        <TextBox>
+          <ToastTitle data-cy="title">{title}</ToastTitle>
+          <ToastDescription data-cy="description">{description}</ToastDescription>
+        </TextBox>
+      </ToastContent>
+      <CloseButton data-cy="close-toast" color={textColor} onClick={closeToast(id!)}>
+        <SvgSelector id="close" />
+      </CloseButton>
+    </ToastBox>
   );
 };

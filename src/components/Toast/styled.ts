@@ -1,30 +1,29 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IToastBoxProps } from '@interfaces';
 import { fadeAnimation, slideAnimation } from '@utils';
 
-const fontSettings = `
+const fontSettings = css`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 31.5rem;
-  margin-left: 2rem;
+  margin-left: ${({ theme }) => theme.margin.marginLeft.small}rem;
 `;
 
 export const ToastBox = styled.div<IToastBoxProps>`
   background: ${({ backgroundColor }) => backgroundColor};
-  width: 45rem;
-  height: 10rem;
-  font-size: 2.2rem;
+  width: ${({ theme }) => theme.width}rem;
+  height: ${({ theme }) => theme.height}rem;
+  font-size: ${({ theme }) => theme.fontSize.medium}rem;
   color: ${({ textColor }) => textColor};
-  border-radius: 2.4rem;
-  box-shadow: 0.4rem 0.4rem 0.8rem #00000029;
+  border-radius: ${({ theme }) => theme.borderRadius}rem;
+  box-shadow: ${({ theme }) => theme.boxShadow};
   display: flex;
   position: relative;
 
-  margin-bottom: 1rem;
+  margin-bottom: ${({ theme }) => theme.margin.marginBottom.small}rem;
   & svg {
-    height: 3rem;
-    width: 3rem;
+    height: ${({ theme }) => theme.svgSizes.medium.height}rem;
+    width: ${({ theme }) => theme.svgSizes.medium.width}rem;
     fill: ${({ textColor }) => textColor};
   }
   ${({ toastDuration, animationType, slideDirection }) => {
@@ -37,7 +36,7 @@ export const ToastBox = styled.div<IToastBoxProps>`
 export const ToastContent = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  margin-left: ${({ theme }) => theme.margin.marginLeft.small}rem;
 `;
 
 export const TextBox = styled.div`
@@ -47,22 +46,22 @@ export const TextBox = styled.div`
 
 export const ToastTitle = styled.span`
   ${fontSettings};
-  margin-bottom: 1rem;
+  margin-bottom: ${({ theme }) => theme.margin.marginBottom.small}rem;
 `;
 
 export const ToastDescription = styled.span`
   ${fontSettings};
-  font-size: 1.6rem;
+  font-size: ${({ theme }) => theme.fontSize.small}rem;
 `;
 
 export const CloseButton = styled.button<{ color: string }>`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: ${({ theme }) => theme.position.top}rem;
+  right: ${({ theme }) => theme.position.right}rem;
   cursor: pointer;
   & svg {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: ${({ theme }) => theme.svgSizes.small.height}rem;
+    width: ${({ theme }) => theme.svgSizes.small.width}rem;
     fill: ${({ color }) => color};
   }
 `;
